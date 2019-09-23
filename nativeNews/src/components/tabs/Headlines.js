@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Alert, ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {
   Body,
   Button,
@@ -15,14 +15,14 @@ import {
   Thumbnail,
   Title,
 } from 'native-base';
-import faker from 'faker';
-import {Alert} from 'react-native';
-import {getArticles} from "../../API/news"
+// import faker from 'faker';
+import {getArticles} from '../../API/news';
+import NewsItem from '../NewsItem';
 
-const randomImage = faker.image.nature();
-const randomName = faker.name.firstName();
-const randomName2 = faker.name.firstName();
-const randomName3 = faker.name.firstName();
+// const randomImage = faker.image.nature();
+// const randomName = faker.name.firstName();
+// const randomName2 = faker.name.firstName();
+// const randomName3 = faker.name.firstName();
 
 export default class Headlines extends Component {
   constructor(props) {
@@ -50,88 +50,24 @@ export default class Headlines extends Component {
 
   render() {
     console.log(this.state.data);
+
+    let ifIsLoading = this.state.isLoading ? (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <ActivityIndicator animating={this.state.isLoading} color="#00f0ff" />
+        <Text style={{marginTop: 10}} children="Please Wait.." />
+      </View>
+    ) : (
+      <List
+        dataArray={this.state.data}
+        renderRow={item => {
+          return <NewsItem data={item} />;
+        }}
+      />
+    );
+
     return (
       <Container>
-        <Content>
-          <List>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: randomImage}} />
-              </Left>
-              <Body>
-                <Text>Salman</Text>
-                <Text note numberOfLines={3}>
-                  This is a test
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: randomImage}} />
-              </Left>
-              <Body>
-                <Text>{randomName}</Text>
-                <Text note numberOfLines={3}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore dolor maxime voluptates quod ipsum. Provident
-                  cupiditate magnam veritatis modi amet aspernatur sint
-                  necessitatibus temporibus, ipsa distinctio officia repellat
-                  omnis corrupti!
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: randomImage}} />
-              </Left>
-              <Body>
-                <Text>{randomName2}</Text>
-                <Text note numberOfLines={3}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore dolor maxime voluptates quod ipsum. Provident
-                  cupiditate magnam veritatis modi amet aspernatur sint
-                  necessitatibus temporibus, ipsa distinctio officia repellat
-                  omnis corrupti!
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: randomImage}} />
-              </Left>
-              <Body>
-                <Text>{randomName3}</Text>
-                <Text note numberOfLines={3}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore dolor maxime voluptates quod ipsum. Provident
-                  cupiditate magnam veritatis modi amet aspernatur sint
-                  necessitatibus temporibus, ipsa distinctio officia repellat
-                  omnis corrupti!
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-          </List>
-        </Content>
+        <Content>{ifIsLoading}</Content>
       </Container>
     );
   }
