@@ -1,28 +1,14 @@
 import React, {Component} from 'react';
 import {Alert, ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {
-  Body,
-  Button,
   Container,
   Content,
-  Header,
   List,
   ListItem,
-  Left,
-  Right,
-  Tab,
-  Tabs,
-  Thumbnail,
-  Title,
 } from 'native-base';
 // import faker from 'faker';
 import {getArticles} from '../../API/news';
 import NewsItem from '../NewsItem';
-
-// const randomImage = faker.image.nature();
-// const randomName = faker.name.firstName();
-// const randomName2 = faker.name.firstName();
-// const randomName3 = faker.name.firstName();
 
 export default class Headlines extends Component {
   constructor(props) {
@@ -84,9 +70,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  //   horizontal: {
-  //     flexDirection: 'row',
-  //     justifyContent: 'space-around',
-  //     padding: 10
-  //   },
 });

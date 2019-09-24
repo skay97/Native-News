@@ -8,7 +8,10 @@ import {
   View,
   Text,
   Button,
+  Row,
 } from 'native-base';
+import {StyleSheet} from 'react-native';
+import Time from './Time';
 
 export default class NewsItem extends Component {
   // constructor(props) {
@@ -32,10 +35,20 @@ export default class NewsItem extends Component {
           />
         </Left>
         <Body>
-          <Text numberOfLines={3}>{newsInfo.title}</Text>
-          <Text note numberOfLines={2}>
-            {newsInfo.description}
-          </Text>
+          {/* <Button> */}
+            <Text numberOfLines={3}>{newsInfo.title}</Text>
+            <Text note numberOfLines={2}>
+              {newsInfo.description}
+            </Text>
+            <View style={styles.published}>
+              <Text note style={styles.textStyles}>
+                {newsInfo.source.name}
+              </Text>
+            </View>
+            <View style={styles.published}>
+              <Time published={newsInfo.publishedAt}></Time>
+            </View>
+          {/* </Button> */}
         </Body>
         <Right>
           <Button transparent>
@@ -46,3 +59,23 @@ export default class NewsItem extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  textStyles: {
+    color: '#808080',
+    fontSize: 14,
+  },
+  published: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 8,
+    marginLeft: 0,
+    color: 'red',
+  },
+});
