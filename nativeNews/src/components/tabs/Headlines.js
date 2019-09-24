@@ -52,15 +52,19 @@ export default class Headlines extends Component {
     console.log(this.state.data);
 
     let ifIsLoading = this.state.isLoading ? (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <ActivityIndicator animating={this.state.isLoading} color="#00f0ff" />
+      <View style={styles.container}>
+        <ActivityIndicator
+          animating={this.state.isLoading}
+          size="large"
+          color="#0000ff"
+        />
         <Text style={{marginTop: 10}} children="Please Wait.." />
       </View>
     ) : (
       <List
         dataArray={this.state.data}
-        renderRow={item => {
-          return <NewsItem data={item} />;
+        renderRow={news => {
+          return <NewsItem newsInfo={news} />;
         }}
       />
     );
@@ -80,4 +84,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  //   horizontal: {
+  //     flexDirection: 'row',
+  //     justifyContent: 'space-around',
+  //     padding: 10
+  //   },
 });
