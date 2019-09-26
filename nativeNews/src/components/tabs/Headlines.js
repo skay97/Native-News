@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Alert, ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {Container, Content, List, ListItem} from 'native-base';
-// import faker from 'faker';
 import {getArticles} from '../../API/news';
 import NewsItem from '../NewsItem';
 import Modal from '../Modal';

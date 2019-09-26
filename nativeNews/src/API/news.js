@@ -1,8 +1,6 @@
-// import axios from 'axios';
 import {
     articles_url,
     api_key,
-    // category,
     county_code,
   } from '../config/rest_config';
   
