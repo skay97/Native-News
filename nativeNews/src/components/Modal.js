@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {Dimensions, Modal, Share} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {
-  Container,
-  Header,
-  Content,
   Body,
-  Left,
+  Button,
+  Container,
+  Content,
+  Header,
   Icon,
+  Left,
   Right,
   Title,
-  Button,
 } from 'native-base';
 
 const webViewHeight = Dimensions.get('window').height - 56;
@@ -31,10 +31,10 @@ class ModalComponent extends Component {
     return (
       <Modal
         animationType="slide"
+        onRequestClose={this.handleClose}
+        // Why can I not call the onClose prop directly? Why do I have to use a separate function?
         transparent
-        visible={showModal}
-        onRequestClose={this.handleClose}>
-        {/* Why can I not call the onClose prop directly? Why do I have to use a separate function? */}
+        visible={showModal}>
         <Container
           style={{margin: 15, marginBottom: 0, backgroundColor: '#fff'}}>
           <Header style={{backgroundColor: '#009387'}}>
@@ -55,11 +55,11 @@ class ModalComponent extends Component {
           </Header>
           <Content contentContainerStyle={{height: webViewHeight}}>
             <WebView
-              source={{uri: url}}
-              style={{flex: 1}}
               onError={this.handleClose}
-              startInLoadingState
               scalesPageToFit
+              source={{uri: url}}
+              startInLoadingState
+              style={{flex: 1}}
             />
           </Content>
         </Container>

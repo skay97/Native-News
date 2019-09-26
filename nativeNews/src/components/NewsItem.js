@@ -8,7 +8,6 @@ import {
   View,
   Text,
   Button,
-  Row,
 } from 'native-base';
 import {StyleSheet} from 'react-native';
 import Time from './Time';
