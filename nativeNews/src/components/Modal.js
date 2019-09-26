@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, Modal, Share} from 'react-native';
+import {Dimensions, Modal, StyleSheet, Share} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {
   Body,
@@ -35,21 +35,20 @@ class ModalComponent extends Component {
         // Why can I not call the onClose prop directly? Why do I have to use a separate function?
         transparent
         visible={showModal}>
-        <Container
-          style={{margin: 15, marginBottom: 0, backgroundColor: '#fff'}}>
-          <Header style={{backgroundColor: '#009387'}}>
+        <Container style={styles.containerStyles}>
+          <Header style={styles.headerStyles}>
             <Left>
               <Button onPress={this.handleClose} transparent>
                 {/* Why Do I have an onRequestClose prop when I am closing via this button */}
-                <Icon name="close" style={{color: 'white', fontSize: 40}} />
+                <Icon name="close" style={styles.iconStyles} />
               </Button>
             </Left>
             <Body>
-              <Title children={articleData.title} style={{color: '#fff'}} />
+              <Title children={articleData.title} style={styles.titleStyles} />
             </Body>
             <Right>
               <Button onPress={this.handleShare} transparent>
-                <Icon name="share" style={{color: 'white', fontSize: 40}} />
+                <Icon name="share" style={styles.iconStyles} />
               </Button>
             </Right>
           </Header>
@@ -67,4 +66,23 @@ class ModalComponent extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  containerStyles: {
+    margin: 15,
+    marginBottom: 0,
+    backgroundColor: '#fff',
+  },
+  headerStyles: {
+    backgroundColor: '#009387',
+  },
+  iconStyles: {
+    color: '#fff',
+    fontSize: 35,
+  },
+  titleStyles: {
+    color: '#fff',
+  },
+});
+
 export default ModalComponent;
