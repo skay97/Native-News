@@ -18,7 +18,7 @@ export default class Headlines extends Component {
     };
   }
 
-  handleItemDataOnPress = articleData => {
+  handleModalDataOnPress = articleData => {
     this.setState({
       setModalVisible: true,
       modalArticleData: articleData,
@@ -61,7 +61,7 @@ export default class Headlines extends Component {
         dataArray={this.state.data}
         renderRow={news => {
           return (
-            <NewsItem onPress={this.handleItemDataOnPress} newsInfo={news} />
+            <NewsItem onPress={this.handleModalDataOnPress} newsInfo={news} />
           );
         }}
       />
