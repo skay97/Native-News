@@ -13,7 +13,7 @@ import {
   Title,
 } from 'native-base';
 
-const webViewHeight = Dimensions.get('window').height - 56;
+const webViewHeight = Dimensions.get('window').height;
 class ModalComponent extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +23,14 @@ class ModalComponent extends Component {
     return this.props.onClose();
   };
 
-  handleShare = () => {};
+  handleShare = () => {
+    const {url, title} = this.props.articleData;
+    message= `${title}\n\nRead More at ${url}\n\nShared via Native News - Created by your friendly neighborhood developer`;
+    return Share.share(
+        {title, message, url: message},
+        {dialogTitle:`Share ${title}`}
+    )
+  };
 
   render() {
     const {showModal, articleData} = this.props;

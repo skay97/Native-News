@@ -23,8 +23,6 @@ export default class NewsItem extends Component {
     this.props.onPress({url, title});
   };
   render() {
-    // const {newsInfo} = this.props;
-
     return (
       <ListItem thumbnail>
         <Left>

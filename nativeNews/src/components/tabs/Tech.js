@@ -1,52 +1,80 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {
-  Body,
-  Button,
-  Container,
-  Content,
-  Header,
-  List,
-  ListItem,
-  Left,
-  Right,
-  Tab,
-  Tabs,
-  Thumbnail,
-  Title,
-} from 'native-base';
-import faker from 'faker';
-
-const randomImage = faker.image.nature();
+import {Alert, ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {Container, Content, List, ListItem} from 'native-base';
+// import faker from 'faker';
+import {getArticles} from '../../API/news';
+import NewsItem from '../NewsItem';
+import Modal from '../Modal';
 
 export default class Tech extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      data: null,
+      setModalVisible: false,
+      modalArticleData: {},
+    };
+  }
+
+  handleModalDataOnPress = articleData => {
+    this.setState({
+      setModalVisible: true,
+      modalArticleData: articleData,
+    });
+  };
+
+  handleModalClose = () => {
+    this.setState({
+      setModalVisible: false,
+      modalArticleData: {},
+    });
+  };
+
+  componentDidMount() {
+    getArticles('technology').then(
+      data => {
+        this.setState({
+          isLoading: false,
+          data: data,
+        });
+      },
+      error => {
+        Alert.alert('Error', 'Something went wrong!');
+      },
+    );
+  }
+
   render() {
+    let ifIsLoading = this.state.isLoading ? (
+      <View style={styles.container}>
+        <ActivityIndicator
+          animating={this.state.isLoading}
+          size="large"
+          color="#0000ff"
+        />
+        <Text style={{marginTop: 10}} children="loading..." />
+      </View>
+    ) : (
+      <List
+        dataArray={this.state.data}
+        renderRow={news => {
+          return (
+            <NewsItem onPress={this.handleModalDataOnPress} newsInfo={news} />
+          );
+        }}
+      />
+    );
+
     return (
       <Container>
-        <Content>
-          <List>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: randomImage}} />
-              </Left>
-              <Body>
-                <Text>Salman</Text>
-                <Text note numberOfLines={3}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore dolor maxime voluptates quod ipsum. Provident
-                  cupiditate magnam veritatis modi amet aspernatur sint
-                  necessitatibus temporibus, ipsa distinctio officia repellat
-                  omnis corrupti!
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-          </List>
-        </Content>
+        <Content>{ifIsLoading}</Content>
+        <Modal
+          showModal={this.state.setModalVisible}
+          articleData={this.state.modalArticleData}
+          onClose={this.handleModalClose}
+        />
       </Container>
     );
   }

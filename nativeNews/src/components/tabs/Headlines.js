@@ -54,14 +54,15 @@ export default class Headlines extends Component {
           size="large"
           color="#0000ff"
         />
-        <Text style={{marginTop: 10}} children="Please Wait.." />
+        <Text style={{marginTop: 10}} children="loading..." />
       </View>
     ) : (
       <List
         dataArray={this.state.data}
+        keyExtractor={this.state.data.title}
         renderRow={news => {
           return (
-            <NewsItem onPress={this.handleModalDataOnPress} newsInfo={news} />
+            <NewsItem onPress={this.handleModalDataOnPress} newsInfo={news} keyExtractor={news => news.title}/>
           );
         }}
       />
