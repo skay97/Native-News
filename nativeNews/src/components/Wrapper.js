@@ -47,12 +47,12 @@ export default class TabsExample extends Component {
 
 const styles = StyleSheet.create({
   headerStyles: {
-    backgroundColor: '#009387',
+    backgroundColor: '#6c8867',
   },
   textStyles: {
     color: '#ffff',
   },
   tabStyles: {
-    backgroundColor: '#009387',
+    backgroundColor: '#6c8867',
   },
 });
