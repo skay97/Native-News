@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   headerStyles: {
-    backgroundColor: '#6c8867',
+    backgroundColor: '#3f4d50',
   },
   iconStyles: {
     color: '#fff',

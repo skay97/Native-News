@@ -17,13 +17,14 @@ export default class NewsItem extends Component {
     super(props);
     this.newsInfo = props.newsInfo;
   }
-  
+
   handlePress = () => {
-    const {url, title} = this.newsInfo
+    const {url, title} = this.newsInfo;
     this.props.onPress({url, title});
   };
   render() {
     return (
+      // <TouchableHighlight onPress={this.handlePress}>
       <ListItem thumbnail>
         <Left>
           <Thumbnail
@@ -56,6 +57,7 @@ export default class NewsItem extends Component {
           </Button>
         </Right>
       </ListItem>
+      // {/* </TouchableHighlight> */}
     );
   }
 }

@@ -61,7 +61,7 @@ export default class Headlines extends Component {
         keyExtractor={this.state.data.title}
         renderRow={news => {
           return (
-            <NewsItem onPress={this.handleModalDataOnPress} newsInfo={news} keyExtractor={news => news.title}/>
+            <NewsItem style={{backgroundColor:'#3f4d50'}} onPress={this.handleModalDataOnPress} newsInfo={news} keyExtractor={news => news.title}/>
           );
         }}
       />
