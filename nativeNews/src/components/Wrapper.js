@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {Body, Container, Header, Tab, Tabs, Title} from 'native-base';
 import Headlines from './tabs/Headlines';
 import Tech from './tabs/Tech';
 import Business from './tabs/Business';
-import LaunchScreen from './LaunchScreen';
+// import LaunchScreen from './LaunchScreen';
 
 export default class TabsExample extends Component {
   constructor(props) {
@@ -62,7 +62,10 @@ export default class TabsExample extends Component {
     } else {
       return (
         <View style={styles.containerStyles}>
-          <LaunchScreen />
+          <Image
+            style={styles.imageStyles}
+            source={require('../../ios/nativeNews/Images.xcassets/Image-1.imageset/nativeNewsImg.png')}
+          />
           <Text style={styles.LaunchScreenHeaderStyles}>Native News</Text>
           <Text style={styles.LaunchScreenSubHeaderStyles}>
             Created By Salman Karim With React Native
@@ -101,4 +104,8 @@ const styles = StyleSheet.create({
   tabStyles: {
     backgroundColor: '#3f4d50',
   },
+  imageStyles: {
+    maxWidth: 150,
+    maxHeight: 150,
+  }
 });
