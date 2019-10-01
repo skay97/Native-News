@@ -4,7 +4,6 @@ import {Body, Container, Header, Tab, Tabs, Title} from 'native-base';
 import Headlines from './tabs/Headlines';
 import Tech from './tabs/Tech';
 import Business from './tabs/Business';
-// import LaunchScreen from './LaunchScreen';
 
 export default class TabsExample extends Component {
   constructor(props) {

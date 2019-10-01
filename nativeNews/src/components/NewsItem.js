@@ -24,7 +24,7 @@ export default class NewsItem extends Component {
   };
   render() {
     return (
-      // <TouchableHighlight onPress={this.handlePress}>
+      // Implement <TouchableHighlight onPress={this.handlePress}> in v2
       <ListItem thumbnail>
         <Left>
           <Thumbnail

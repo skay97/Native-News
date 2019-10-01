@@ -38,15 +38,12 @@ class ModalComponent extends Component {
     return (
       <Modal
         animationType="slide"
-        onRequestClose={this.handleClose}
-        // Why can I not call the onClose prop directly? Why do I have to use a separate function?
         transparent
         visible={showModal}>
         <Container style={styles.containerStyles}>
           <Header style={styles.headerStyles}>
             <Left>
               <Button onPress={this.handleClose} transparent>
-                {/* Why Do I have an onRequestClose prop when I am closing via this button */}
                 <Icon name="close" style={styles.iconStyles} />
               </Button>
             </Left>
