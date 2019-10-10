@@ -1,5 +1,5 @@
 # Native-News
-Native News is a news application built with React Native. The app uses NewsApi.org to fetch(pun intended - will refactor to use Axios in the future :bowtie:) news articles and 
+Native News is a news application built with React Native. The app uses NewsApi.org to fetch (pun intended - will refactor to use Axios in the future :bowtie:) news articles and 
 Publisher information. I also used NativeBase as my UI framework to enhance my interface.
 
 # App Functionality
