@@ -2,6 +2,8 @@
 Native News is a news application built with React Native. The app uses NewsApi.org to fetch (pun intended - will refactor to use Axios in the future :bowtie:) news articles and 
 Publisher information. I also used NativeBase as my UI framework to enhance my interface.
 
+Aside from testing Native News on simulators, I have a production build running on my cellular device. I also intend to make this work with android devices in the future.
+
 # App Functionality
 Here is a breakdown of what the app contains:
 - Three separate views: Headlines, Tech & Business
