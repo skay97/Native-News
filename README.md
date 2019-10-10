@@ -35,4 +35,4 @@ Once you have followed the steps for your first time set up as noted above, plea
 - `rm -rf node_modules`
 - `npm cache clean`
 - `npm install`
-- `react-native run-ios` or `react-native run-ios --simulator= of your choice`
+- `react-native run-ios` or `react-native run-ios --simulator="of your choice"`
