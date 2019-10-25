@@ -12,10 +12,10 @@ Here is a breakdown of what the app contains:
 - ability to share news articles with people
 
 # App Demo
-## App loading and individual views
-![Nn-loading](https://user-images.githubusercontent.com/44034677/66578386-9e6eb300-eb40-11e9-85aa-d65aae5f39ca.gif)
-## Article view
-![nativeNews-article](https://user-images.githubusercontent.com/44034677/66580520-27d3b480-eb44-11e9-8931-b0d5c743793b.gif)
+| App loading and individual views  | Article view |
+| ------------- | ------------- |
+| ![Nn-loading](https://user-images.githubusercontent.com/44034677/66578386-9e6eb300-eb40-11e9-85aa-d65aae5f39ca.gif)  | ![nativeNews-article](https://user-images.githubusercontent.com/44034677/66580520-27d3b480-eb44-11e9-8931-b0d5c743793b.gif)  |
+
 
 # Installation
 If you have not developed with React Native before, I highly recommend visiting the [React Native Docs](https://facebook.github.io/react-native/docs/getting-started) to get better acquainted with the setup process using the  React Native CLI tools.
